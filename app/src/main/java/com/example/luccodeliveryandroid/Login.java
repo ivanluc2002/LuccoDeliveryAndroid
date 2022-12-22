@@ -35,8 +35,8 @@ public class Login extends AppCompatActivity {
         }
         return true;
     }
-    protected String leggi(String utente) throws IOException {
-        File file = new File(getFilesDir(), utente);
+    protected String leggi(String log) throws IOException {
+        File file = new File(getFilesDir(), log);
         int length = (int) file.length();
         byte[] bytes = new byte[length];
         try (FileInputStream in = new FileInputStream(file)) {
@@ -58,9 +58,9 @@ public class Login extends AppCompatActivity {
         });
         binding.accediButton.setOnClickListener(view -> {
             try{
-            Boolean writeOK = scrivi(  "message.txt", "text-to-write");
+            Boolean writeOK = scrivi(  "log", "email: "+binding.emailForm.getText().toString()+"password: "+binding.passwordForm.getText().toString());
             if (writeOK==true) {
-                String testo = leggi( "message.txt");
+                String testo = leggi( "log");
                 Log. d(  "Leggi: ", testo);
             } else {
                 Log.d("Male: ", "non va");
