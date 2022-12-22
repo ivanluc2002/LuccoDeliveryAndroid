@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
             e.printStackTrace();
 
         }
-        return false;
+        return true;
     }
     protected String leggi(String utente) throws IOException {
         File file = new File(getFilesDir(), utente);
@@ -57,13 +57,14 @@ public class Login extends AppCompatActivity {
             startActivity(intent);
         });
         binding.accediButton.setOnClickListener(view -> {
-            try {
-                scrivi(binding.emailForm.getText().toString(),"prova");
-            } catch (IOException e) {
-                e.printStackTrace();
+            try{
+            Boolean writeOK = scrivi(  "message.txt", "text-to-write");
+            if (writeOK==true) {
+                String testo = leggi( "message.txt");
+                Log. d(  "Leggi: ", testo);
+            } else {
+                Log.d("Male: ", "non va");
             }
-            try {
-                leggi(binding.emailForm.getText().toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
