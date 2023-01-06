@@ -68,6 +68,8 @@ public class Login extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            Intent intent= new Intent(Login.this,Home.class);
+            startActivity(intent);
         });
 
     }
