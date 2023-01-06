@@ -23,13 +23,13 @@ public class Home extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navhome:
                     showHome();
+                    bottomNavigationView.getMenu().findItem(R.id.navhome).setChecked(true);
                     break;
 
                 case R.id.navuser:
                     showUser();
+                    bottomNavigationView.getMenu().findItem(R.id.navuser).setChecked(true);
                     break;
-
-
             }
             return false;
         });
