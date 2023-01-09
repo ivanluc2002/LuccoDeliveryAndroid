@@ -13,18 +13,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RistoranteAdapter extends RecyclerView.Adapter<RistoranteAdapter.ProjectViewHolder>{
-    private final Project[] projects;
+    private final String[] piatti;
 
 
 
-    public RistoranteAdapter(Project[] projects){
-        this.projects=projects;
+    public RistoranteAdapter(String[] piatti){
+        this.piatti=piatti;
 
     }
     @NonNull
     @Override
     public ProjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mio_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mio_layout2,parent,false);
 
         return new ProjectViewHolder(view);
     }
@@ -32,7 +32,7 @@ public class RistoranteAdapter extends RecyclerView.Adapter<RistoranteAdapter.Pr
     @Override
     public void onBindViewHolder(@NonNull ProjectViewHolder holder, int position) {
 
-            Project item= projects[position];
+            String item= piatti[position];
             holder.bind(item);
 
 
@@ -43,25 +43,25 @@ public class RistoranteAdapter extends RecyclerView.Adapter<RistoranteAdapter.Pr
 
     @Override
     public int getItemCount(){
-        return projects.length;
+        return piatti.length;
     }
 
 
      class ProjectViewHolder extends RecyclerView.ViewHolder {
         private final TextView nome;
-        private final ImageView icon;
+
 
         public ProjectViewHolder(@NonNull View itemView) {
             super(itemView);
             nome = itemView.findViewById(R.id.text_card);
-            icon = itemView.findViewById(R.id.image_icon_card);
+
 
         }
 
-        public void bind(Project item) {
+        public void bind(String item) {
 
-                nome.setText(""+item.piatti);
-                icon.setImageResource(item.image);
+                nome.setText(item);
+
 
 
 

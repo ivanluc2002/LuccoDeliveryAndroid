@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 public class Ristorante extends AppCompatActivity {
     private TextView textView;
     private RecyclerView recyclerView;
@@ -24,7 +26,7 @@ public class Ristorante extends AppCompatActivity {
         textView.setText(project.getName());
         imageView.setImageResource(project.getImage());
         recyclerView= findViewById(R.id.recycler1);
-        RistoranteAdapter ristoranteAdapter= new RistoranteAdapter(new Project[]{project});
+        RistoranteAdapter ristoranteAdapter= new RistoranteAdapter(project.getPiattiArray().toArray(new String[0]));
         recyclerView.setAdapter(ristoranteAdapter);
 
 

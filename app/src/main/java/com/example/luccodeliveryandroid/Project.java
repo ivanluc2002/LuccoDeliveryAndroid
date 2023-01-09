@@ -60,4 +60,9 @@ public class Project implements Serializable {
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
     }
+
+    public ArrayList<String> getPiattiArray() {
+        return piatti;
+    }
 }
+
