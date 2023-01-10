@@ -47,11 +47,13 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
     static class ProjectViewHolder extends RecyclerView.ViewHolder {
         private final TextView nome;
         private final ImageView icon;
+        private final TextView desc;
 
         public ProjectViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             nome = itemView.findViewById(R.id.text_card);
             icon = itemView.findViewById(R.id.image_icon_card);
+            desc= itemView.findViewById(R.id.text_desc);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -68,6 +70,7 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
         public void bind(Project project) {
             nome.setText(project.name);
             icon.setImageResource(project.image);
+            desc.setText(project.descrizione);
         }
     }
 }
